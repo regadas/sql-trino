@@ -1,4 +1,4 @@
-;;; sql-trino.el --- Adds Trino support to SQLi mode. -*- lexical-binding: t -*-
+;;; sql-trino.el --- Adds Trino support to SQLi mode -*- lexical-binding: t -*-
 
 ;; Copyright (C) since 2022 Filipe Regadas
 ;; Author: Filipe Regadas <oss@regadas.email>
