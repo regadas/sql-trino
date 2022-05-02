@@ -3,7 +3,7 @@
 ;; Copyright (C) since 2022 Filipe Regadas
 ;; Author: Filipe Regadas <oss@regadas.email>
 ;; Version: 0.1.0
-;; Keywords: sql trino database
+;; Keywords: tools
 ;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/regadas/sql-trino
 
