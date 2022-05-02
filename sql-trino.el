@@ -6,6 +6,7 @@
 ;; Keywords: tools
 ;; Package-Requires: ((emacs "24.4"))
 ;; URL: https://github.com/regadas/sql-trino
+;; SPDX-License-Identifier: GPL-3.0-or-later
 
 
 ;;; Commentary:
