@@ -72,7 +72,7 @@
   :type 'file
   :group 'sql-trino)
 
-(defcustom sql-trino-login-params '(server default-catalog default-schema)
+(defcustom sql-trino-login-params '(user server database)
   "Parameters needed to connect to Trino."
   :type 'sql-login-params
   :group 'sql-trino)
@@ -88,11 +88,15 @@
 PRODUCT is the sql product (trino). OPTIONS are any additional
 options to pass to trino-shell. BUFFER-NAME is what you'd like
 the SQLi buffer to be named."
-  (let ((params (append (unless (string= "" sql-server)
-                          `("--server" ,sql-server))
-                        (unless (string= "" sql-database)
-                          `("--catalog" sql-database))
-                        options)))
+  (let ((params
+         (append
+          (if (not (string= "" sql-user))
+              (list "--user" sql-user))
+          (if (not (string= "" sql-database))
+              (list "--catalog" sql-database))
+          (if (not (string= "" sql-server))
+              (list "--server" sql-server))
+          options)))
     (setenv "TRINO_PAGER" "cat")
     (sql-comint product params buffer-name)))
 
