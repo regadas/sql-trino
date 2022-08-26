@@ -113,6 +113,7 @@ The buffer with name BUFFER will be used or created."
                  :list-all "SHOW TABLES;"
                  :list-table "DESCRIBE %s;"
                  :prompt-regexp "^[^>]*> "
+                 :prompt-length 7
                  :prompt-cont-regexp "^[ ]+-> "
                  :sqli-comint-func 'sql-trino-comint
                  :font-lock 'sql-mode-ansi-font-lock-keywords
