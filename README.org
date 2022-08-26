@@ -13,6 +13,11 @@ The canonical repository for the source code is https://github.com/regadas/sql-t
 
 The recommended way to install the package is to utilize Emacs's =package.el= along with MELPA. To set this up, please follow MELPA's [[https://melpa.org/#/getting-started][getting started guide]], and then run =M-x package-install sql-trino=.
 
+** Doom Emacs
+#+begin_src emacs-lisp
+(package! sql-trino)
+#+end_src
+
 * Requirements
 
 Download the [[https://repo1.maven.org/maven2/io/trino/trino-cli/378/trino-cli-378-executable.jar][Trino CLI]], rename it to =trino= and put it in your =$PATH=.
@@ -23,6 +28,35 @@ Within Emacs, run =M-x sql-trino=. You will be prompted by a minibuffer for a se
 
 From there you can either type queries in this buffer, or open a =sql-mode= buffer and send chunks of SQL over to the SQLi buffer with the requisite key-chords.
 
+** Org-mode usage
+
+=org-mode= support is available through the usage of [[https://github.com/nikclayton/ob-sql-mode][ob-sql-mode]], a =sql-mode= backend for Org Babel.
+
+*** Install
+
+Check =ob-sql-mode= installation [[https://github.com/nikclayton/ob-sql-mode#installation][section]].
+
+**** Doom Emacs
+#+begin_src emacs-lisp
+(package! ob-sql-mode)
+#+end_src
+
+*** Example
+#+begin_example
+,#+begin_src sql-mode :product trino
+prepare customers
+from
+select c_customer_id
+from sf100000.customer
+limit ?;
+,#+end_src
+#+end_example
+
+#+begin_example
+,#+begin_src sql-mode :product trino
+execute customers using 1;
+,#+end_src
+#+end_example
 
 * Contributing
 
